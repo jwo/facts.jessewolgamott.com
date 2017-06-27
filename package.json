@@ -1,0 +1,22 @@
+{
+  "name": "facts.jessewolgamott.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack src/index.js public/dist/bundle.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.77.0",
+    "blob-util": "^1.2.1",
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3"
+  }
+}
