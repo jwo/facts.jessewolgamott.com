@@ -67,15 +67,15 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-const audioElement = document.querySelector("audio")
+var audioElement = document.querySelector("audio")
 
-const handlePlay = function(event){
+var handlePlay = function(event){
   event.preventDefault();
 
   fetch("/speak", {method: "POST"})
   .then( (r) => r.json() )
-  .then( (data) => {
-    var uInt8Array = new Uint8Array(data.AudioStream.data);
+  .then( (json) => {
+    var uInt8Array = new Uint8Array(json.AudioStream.data);
     var arrayBuffer = uInt8Array.buffer;
     var blob = new Blob([arrayBuffer]);
     var url = URL.createObjectURL(blob);

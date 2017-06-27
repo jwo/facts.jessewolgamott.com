@@ -1,6 +1,6 @@
-const audioElement = document.querySelector("audio")
+var audioElement = document.querySelector("audio")
 
-const handlePlay = function(event){
+var handlePlay = function(event){
   event.preventDefault();
 
   fetch("/speak", {method: "POST"})
