@@ -36,6 +36,7 @@ app.get("/speak/:id", function(req, res) {
       var filename = req.params.id + ".mp3";
       fs.writeFile('./public/mp3/'+filename, data.AudioStream, function (err) {
         if (err) {
+          console.log("Error:", err)
           res.status(422).json(err);
         } else {
           // Send the audio file
