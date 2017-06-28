@@ -1,7 +1,6 @@
-svg {
+.play {
   flex: 1;
-  max-width: 100%;
-  fill: white;
+  /*color: white;*/
   height: 60vh;
 }
 body {

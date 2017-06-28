@@ -1,5 +1,4 @@
 // Credit: https://github.com/Jam3/web-audio-player/blob/master/index.html
-
 var audioPlayer = require('web-audio-player')
 var createApp = require('canvas-loop')
 var createAnalyser = require('web-audio-analyser')
@@ -106,8 +105,8 @@ function start (audioContext, shouldBuffer) {
   player.on('load', function () {
     loading.style.display = 'none'
 
-    console.log('Source:', player.element ? 'MediaElement' : 'Buffer')
-    console.log('Playing', Math.round(player.duration) + 's of audio...')
+    // console.log('Source:', player.element ? 'MediaElement' : 'Buffer')
+    // console.log('Playing', Math.round(player.duration) + 's of audio...')
 
     // start audio node
     player.play()
@@ -124,7 +123,15 @@ function start (audioContext, shouldBuffer) {
     if (player.playing) {
       clickToPlay.style.display = 'none'
     } else {
-      clickToPlay.textContent = 'Paused'
+      clickToPlay.textContent = ''
+      var html = `<span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-play fa-stack-1x fa-inverse"></i>
+      </span>`
+      clickToPlay.insertAdjacentHTML('beforeend', html)
+
+
+
       clickToPlay.style.display = 'block'
     }
   }

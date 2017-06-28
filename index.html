@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Jesse Wolgamott Fun Facts</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./dist/bundle.css">
 
   </head>
@@ -16,8 +17,15 @@
       <h1>JWO Fun Facts</h1>
 
       <canvas></canvas>
-       <div class="loading">Loading...</div>
-       <div class="play" style="display: none;">Tap anywhere to start.</div>
+       <div class="loading">
+          <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+       </div>
+       <div class="play" style="display: none;">
+         <span class="fa-stack fa-lg">
+           <i class="fa fa-circle fa-stack-2x"></i>
+           <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+         </span>
+       </div>
       </article>
 
     <script src="./dist/bundle.js" charset="utf-8"></script>
