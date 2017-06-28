@@ -128,10 +128,8 @@ function start (audioContext, shouldBuffer) {
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-play fa-stack-1x fa-inverse"></i>
       </span>`
+
       clickToPlay.insertAdjacentHTML('beforeend', html)
-
-
-
       clickToPlay.style.display = 'block'
     }
   }
