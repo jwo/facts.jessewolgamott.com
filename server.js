@@ -4,6 +4,7 @@ const app = express();
 const facts = require("./src/facts");
 const AWS = require('aws-sdk');
 const path = require("path");
+const fs = require("fs");
 require('dotenv').config()
 
 app.use(bodyParser.json())
@@ -18,7 +19,7 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/index.html'))
 })
 
-app.post("/speak", function(req, res) {
+app.get("/speak/:id", function(req, res) {
   const fact = facts.randomFact();
 
   const params = {
@@ -31,7 +32,17 @@ app.post("/speak", function(req, res) {
     if (err) {
       res.status(422).json(err);
     } else {
-      res.json(data)
+
+      var filename = req.params.id + ".mp3";
+      fs.writeFile('./public/mp3/'+filename, data.AudioStream, function (err) {
+        if (err) {
+          res.status(422).json(err);
+        } else {
+          // Send the audio file
+          res.setHeader('content-type', 'audio/mpeg');
+          res.download('public/mp3/'+filename);
+        }
+      })
     }
   });
 })
