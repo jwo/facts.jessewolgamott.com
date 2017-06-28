@@ -19,11 +19,11 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/index.html'))
 })
 
-app.get("/speak/:id", function(req, res) {
+app.get("/speak/:id.:format", function(req, res) {
   const fact = facts.randomFact();
 
   const params = {
-    OutputFormat: "mp3",
+    OutputFormat: req.params.format,
     Text: fact,
     TextType: "text",
     VoiceId: "Joanna"
@@ -33,14 +33,14 @@ app.get("/speak/:id", function(req, res) {
       res.status(422).json(err);
     } else {
 
-      var filename = req.params.id + ".mp3";
+      var filename = req.params.id + req.params.format;
       fs.writeFile('/tmp/'+filename, data.AudioStream, function (err) {
         if (err) {
           console.log("Error:", err)
           res.status(422).json(err);
         } else {
           // Send the audio file
-          res.setHeader('content-type', 'audio/mpeg');
+          res.setHeader('content-type', req.params.format === 'mp3' ? 'audio/mpeg' : 'audio/ogg');
           res.download('/tmp/'+filename);
         }
       })
