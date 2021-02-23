@@ -22,7 +22,7 @@
     "analyser-frequency-average": "^1.0.0",
     "aws-sdk": "^2.77.0",
     "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.23.0",
     "blob-util": "^1.2.1",
     "body-parser": "^1.17.2",
